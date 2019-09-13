@@ -61,3 +61,172 @@ DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is depreca
   [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-12 00:06:33.686106"], ["updated_at", "2019-09-12 00:06:33.686106"]]
   [1m[35m (18.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2019-09-12 17:56:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (10.9ms)
+Completed 200 OK in 81ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2019-09-12 17:56:37 -0700
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 571ms (Views: 554.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2019-09-12 17:56:43 -0700
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pRc0E3Wa17dfburqqd6zcvA9AurG7LCx1DEQfPiW2pF0ioDSOl0F+qknmo9x3CYNkCP/MsRwAnkMw4Oqb4Lh0A==", "student"=>{"first_name"=>"shiloh", "last_name"=>"Roberts"}, "commit"=>"Create Student"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "students" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "shiloh"], ["last_name", "Roberts"], ["created_at", "2019-09-13 00:56:43.867444"], ["updated_at", "2019-09-13 00:56:43.867444"]]
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/students/3
+Completed 302 Found in 15ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/students/3" for 127.0.0.1 at 2019-09-12 17:56:43 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 42ms (Views: 29.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2019-09-12 17:56:46 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+    1: <% @students.each do |student| %>
+    2:     <div><%= link_to student.first_name student_path(student) %></div>
+    3: <% end %>
+  
+app/views/students/index.html.erb:2:in `block in _app_views_students_index_html_erb__3861302689366867336_69976042772340'
+app/views/students/index.html.erb:1:in `_app_views_students_index_html_erb__3861302689366867336_69976042772340'
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.4ms)
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (115.3ms)
+Started GET "/students" for 127.0.0.1 at 2019-09-12 17:57:06 -0700
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 29ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/3" for 127.0.0.1 at 2019-09-12 17:57:10 -0700
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 34.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/school_classes" for 127.0.0.1 at 2019-09-12 17:57:29 -0700
+Processing by SchoolClassesController#index as HTML
+  Rendering school_classes/index.html.erb within layouts/application
+  Rendered school_classes/index.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:1: syntax error, unexpected class, expecting '|'
+... @school_classes.each do |class| 
+...                          ^~~~~
+/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:2: syntax error, unexpected '.'
+..._buffer.append=( link_to class.title, school_class_path(clas...
+...                              ^
+/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:2: syntax error, unexpected ')'
+...title, school_class_path(class) );@output_buffer.safe_append...
+...                              ^
+/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:3: syntax error, unexpected end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+          ^~~
+/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:4: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/mnt/c/Users/pinea/dev/flatiron/labs/rails-form_for-lab-online-web-pt-041519/app/views/school_classes/index.html.erb:6: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/school_classes/index.html.erb:1: syntax error, unexpected class, expecting '|'
+app/views/school_classes/index.html.erb:2: syntax error, unexpected '.'
+app/views/school_classes/index.html.erb:2: syntax error, unexpected ')'
+app/views/school_classes/index.html.erb:3: syntax error, unexpected end, expecting ')'
+app/views/school_classes/index.html.erb:4: syntax error, unexpected ensure, expecting ')'
+app/views/school_classes/index.html.erb:6: syntax error, unexpected end, expecting ')'
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.7ms)
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/pineappleguy/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.1ms)
+Started GET "/school_classes" for 127.0.0.1 at 2019-09-12 18:00:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchoolClassesController#index as HTML
+  Rendering school_classes/index.html.erb within layouts/application
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1m[34mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 370ms (Views: 339.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/school_classes/new" for 127.0.0.1 at 2019-09-12 18:00:54 -0700
+Processing by SchoolClassesController#new as HTML
+  Rendering school_classes/new.html.erb within layouts/application
+  Rendered school_classes/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 45ms (Views: 37.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/school_classes" for 127.0.0.1 at 2019-09-12 18:01:00 -0700
+Processing by SchoolClassesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7SuqF4Vr4yUtu/H85y6BG8uCHsMan/vms8wrVn40jHY8th7WyqwxaNvygZk/LBRkq5zjGxgDSS5rPriA6SC3Nw==", "school_class"=>{"title"=>"History", "room_number"=>"1408"}, "commit"=>"Create School class"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "school_classes" ("title", "room_number") VALUES (?, ?)[0m  [["title", "History"], ["room_number", 1408]]
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/school_classes/1
+Completed 302 Found in 15ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/school_classes/1" for 127.0.0.1 at 2019-09-12 18:01:00 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering school_classes/show.html.erb within layouts/application
+  Rendered school_classes/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes" for 127.0.0.1 at 2019-09-12 18:01:05 -0700
+Processing by SchoolClassesController#index as HTML
+  Rendering school_classes/index.html.erb within layouts/application
+  [1m[36mSchoolClass Load (0.2ms)[0m  [1m[34mSELECT "school_classes".* FROM "school_classes"[0m
+  Rendered school_classes/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/school_classes/1" for 127.0.0.1 at 2019-09-12 18:01:07 -0700
+Processing by SchoolClassesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchoolClass Load (0.3ms)[0m  [1m[34mSELECT  "school_classes".* FROM "school_classes" WHERE "school_classes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering school_classes/show.html.erb within layouts/application
+  Rendered school_classes/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.3ms)
+
+
